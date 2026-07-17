@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "supplier_price_trend_by_component.py output",
+  "description": "Requires --supplier (always). No --component filter exists on this script — by_component has one dynamic key per component_category the target supplier actually has orders in, across the whole dataset. peer_* series are computed from all OTHER suppliers of the same component, not the whole dataset.",
+  "type": "object",
+  "$defs": {
+    "monthly_price_point": {
+      "type": "object",
+      "properties": {
+        "month": {"type": "string", "format": "date", "description": "First of the month, e.g. 2024-03-01."},
+        "avg_price": {"type": "number"}
+      },
+      "required": ["month", "avg_price"],
+      "additionalProperties": false
+    },
+    "component_entry": {
+      "type": "object",
+      "properties": {
+        "target_po_count": {"type": "integer"},
+        "peer_po_count": {"type": "integer"},
+        "target_supplier_monthly_avg_price": {"type": "array", "items": {"$ref": "#/$defs/monthly_price_point"}},
+        "peer_suppliers_monthly_avg_price": {"type": "array", "items": {"$ref": "#/$defs/monthly_price_point"}}
+      },
+      "required": ["target_po_count", "peer_po_count", "target_supplier_monthly_avg_price", "peer_suppliers_monthly_avg_price"],
+      "additionalProperties": false
+    }
+  },
+  "properties": {
+    "filters": {
+      "type": "object",
+      "properties": {
+        "component": {"type": "null", "description": "Always null — this script has no --component argument."},
+        "supplier": {"type": "string"},
+        "criticality": {"type": "null", "description": "Always null — this script has no --criticality argument."}
+      },
+      "required": ["component", "supplier", "criticality"],
+      "additionalProperties": false
+    },
+    "by_component": {
+      "type": "object",
+      "description": "Keys are component_category values dynamic to the dataset.",
+      "additionalProperties": {"$ref": "#/$defs/component_entry"}
+    }
+  },
+  "required": ["filters", "by_component"],
+  "additionalProperties": false
+}

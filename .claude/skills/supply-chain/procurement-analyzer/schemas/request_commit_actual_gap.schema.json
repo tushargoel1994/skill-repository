@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "request_commit_actual_gap.py output",
+  "description": "Requires --component or --supplier (never neither). component_breakdown: single-element array (the whole fixed component, no grouping) when filters.component is set; one row per component_category when filters.component is null (cross-component supplier run). criticality_breakdown: one row per component_criticality (filters.component set) or per (component_category, component_criticality) (filters.component null). Each row's nested gap-stat sub-objects are flattened into prefixed scalar columns (committed_later_*, delayed_beyond_commit_*) rather than nested objects, to match the flat-record convention used by every other breakdown-producing operation.",
+  "type": "object",
+  "$defs": {
+    "gap_row_fields": {
+      "type": "object",
+      "properties": {
+        "component_category": {"type": "string", "description": "Present only when filters.component is null (cross-component supplier run)."},
+        "component_criticality": {"type": "string", "description": "Present only in criticality_breakdown."},
+        "total_pos": {"type": "integer"},
+        "on_time_as_requested_count": {"type": "integer", "description": "POs delivered exactly on the originally requested date (commit_date == request_date)."},
+        "committed_later_count": {"type": "integer", "description": "POs where commit_date was pushed out past request_date."},
+        "committed_later_avg_days": {"type": ["number", "null"]},
+        "committed_later_std_days": {"type": ["number", "null"]},
+        "committed_later_min_days": {"type": ["integer", "null"]},
+        "committed_later_max_days": {"type": ["integer", "null"]},
+        "delayed_beyond_commit_count": {"type": "integer", "description": "POs delivered later than commit_date."},
+        "delayed_beyond_commit_avg_days": {"type": ["number", "null"]},
+        "delayed_beyond_commit_std_days": {"type": ["number", "null"]},
+        "delayed_beyond_commit_min_days": {"type": ["integer", "null"]},
+        "delayed_beyond_commit_max_days": {"type": ["integer", "null"]}
+      },
+      "required": [
+        "total_pos", "on_time_as_requested_count",
+        "committed_later_count", "committed_later_avg_days", "committed_later_std_days", "committed_later_min_days", "committed_later_max_days",
+        "delayed_beyond_commit_count", "delayed_beyond_commit_avg_days", "delayed_beyond_commit_std_days", "delayed_beyond_commit_min_days", "delayed_beyond_commit_max_days"
+      ]
+    }
+  },
+  "properties": {
+    "filters": {
+      "type": "object",
+      "properties": {
+        "component": {"type": ["string", "null"]},
+        "supplier": {"type": ["string", "null"]},
+        "criticality": {"type": ["string", "null"]}
+      },
+      "required": ["component", "supplier", "criticality"]
+    },
+    "component_breakdown": {
+      "type": "array",
+      "description": "Single row (whole component) when filters.component is set; one row per component_category when it's null.",
+      "items": {"$ref": "#/$defs/gap_row_fields"}
+    },
+    "criticality_breakdown": {
+      "type": "array",
+      "description": "One row per component_criticality (filters.component set) or per (component_category, component_criticality) (filters.component null).",
+      "items": {"$ref": "#/$defs/gap_row_fields"}
+    }
+  },
+  "required": ["filters", "component_breakdown", "criticality_breakdown"],
+  "additionalProperties": false
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "price_volume_trend.py output",
+  "description": "price_volume_trend.py requires --component. component_breakdown is one row per calendar month (order_month), the same monthly avg_unit_price/total_qty series plotted in the chart. criticality_breakdown is the same, split further by component_criticality. avg_unit_price here is intentionally an UNWEIGHTED mean of unit_cost_usd per month — unlike every other operation's avg_unit_price/avg_price fields, this is a deliberate choice for a trend line (equal weight per transaction reveals quoted-price movement over time; spend-weighting would answer a different question and could mask price creep behind a few large low-priced orders).",
+  "type": "object",
+  "$defs": {
+    "trend_row": {
+      "type": "object",
+      "properties": {
+        "order_month": {"type": "string", "description": "First day of the month, e.g. \"2025-03-01\"."},
+        "component_criticality": {"type": "string", "description": "Present only in criticality_breakdown."},
+        "avg_unit_price": {"type": "number", "description": "Unweighted mean of unit_cost_usd for the month — see top-level description."},
+        "total_qty": {"type": "integer"}
+      },
+      "required": ["order_month", "avg_unit_price", "total_qty"]
+    }
+  },
+  "properties": {
+    "filters": {
+      "type": "object",
+      "properties": {
+        "component": {"type": "string"},
+        "supplier": {"type": ["string", "null"]},
+        "criticality": {"type": ["string", "null"]}
+      },
+      "required": ["component", "supplier", "criticality"]
+    },
+    "component_breakdown": {
+      "type": "array",
+      "description": "One row per order_month in the filtered scope. Same series the chart plots.",
+      "items": {"$ref": "#/$defs/trend_row"}
+    },
+    "criticality_breakdown": {
+      "type": "array",
+      "description": "One row per (order_month, component_criticality) combination present in scope.",
+      "items": {"$ref": "#/$defs/trend_row"}
+    }
+  },
+  "required": ["filters", "component_breakdown", "criticality_breakdown"],
+  "additionalProperties": false
+}

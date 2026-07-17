@@ -1,0 +1,83 @@
+supplier_name,category,baseline_po,recent_po,baseline_price,recent_price,drift_pct,recent_qty,recent_spend,excess_cost_vs_baseline
+Badlands Components LLC,Optical,1,3,19207.27,31713.18,65.11,69,2188209.11,862907.48
+Ironclad Assemblies,Optical,2,4,8574.97,20221.44,135.82,39,788636.21,454212.57
+Riverton Manufacturing,Thermal Management,1,2,511.96,5694.76,1012.35,46,261959.16,238409.0
+Stratos Machined Parts,Hydraulic,1,5,3969.13,6981.92,75.91,65,453824.68,195831.23
+Horizon Mech Solutions,Hydraulic,1,4,2349.02,4780.75,103.52,67,320310.39,162926.05
+Stratos Machined Parts,Electrical,1,1,1193.75,11248.28,842.26,12,134979.36,120654.36
+Ironclad Assemblies,Mechanical,5,3,1387.79,3699.8,166.6,46,170190.98,106352.71
+Coastal Precision Parts,Thermal Management,2,3,1314.93,3509.42,166.89,48,168452.14,105335.37
+Dusk Manufacturing Co,Optical,4,1,13310.6,28328.98,112.83,7,198302.86,105128.69
+Ridgeline Hydraulics,Optical,1,1,26987.44,39960.07,48.07,8,319680.56,103781.04
+Alpine Fabrications Inc,Hydraulic,1,7,1558.56,2091.08,34.17,180,376393.84,95853.35
+Greystone Fabrications,Electrical,1,3,9165.14,10363.44,13.07,72,746168.04,86277.96
+Crestline Tooling Co,Thermal Management,1,2,799.12,5312.1,564.74,18,95617.74,81233.58
+Western Alloy Fab,Hydraulic,1,2,1037.81,3963.46,281.91,22,87196.16,64364.34
+Hollowpoint Alloys Inc,Thermal Management,1,2,1896.09,4654.9,145.5,22,102407.72,60693.74
+Eagle Ridge Components,Mechanical,1,1,1019.89,3481.14,241.33,24,83547.36,59070.0
+Lowland Metal Works,Mechanical,1,1,1319.79,3600.28,172.79,25,90007.0,57012.25
+Zenith Alloy Solutions,Thermal Management,4,2,2994.61,5318.55,77.6,24,127645.14,55774.51
+Trident Industrial Parts,Mechanical,2,2,1806.45,4212.08,133.17,22,92665.8,52923.93
+Stratos Machined Parts,Mechanical,1,2,2240.59,3478.38,55.24,39,135656.9,48273.89
+Alpine Fabrications Inc,Mechanical,1,3,3517.98,4367.34,24.14,44,192163.1,37372.07
+Polaris Metals Group,Thermal Management,1,1,3165.8,5213.61,64.69,15,78204.15,30717.15
+Greystone Fabrications,Mechanical,1,2,1434.37,2132.85,48.7,24,51188.4,16763.52
+Trident Industrial Parts,Electrical,1,1,2156.47,6949.79,222.28,3,20849.37,14379.96
+Western Alloy Fab,Thermal Management,1,3,4506.9,4700.29,4.29,52,244415.3,10056.5
+Vega Electronics Ltd,Optical,1,2,9951.33,10746.02,7.99,11,118206.21,8741.58
+Hollowpoint Alloys Inc,Structural,1,1,1580.95,1946.91,23.15,9,17522.19,3293.64
+Bayside Precision LLC,Hydraulic,1,1,1494.98,3385.99,126.49,1,3385.99,1891.01
+Pacific Alloy Works,Structural,3,1,835.45,1084.39,29.8,3,3253.17,746.82
+Foxridge Assemblies,Structural,1,2,762.22,717.76,-5.83,35,25121.53,-1556.17
+Pacific Alloy Works,Thermal Management,1,1,5225.75,5085.68,-2.68,13,66113.84,-1820.91
+Helix Precision Mfg,Structural,1,1,1372.56,689.06,-49.8,3,2067.18,-2050.5
+Granite Valley Mfg,Thermal Management,4,6,1660.3,1625.65,-2.09,97,157687.95,-3361.39
+Horizon Mech Solutions,Structural,1,1,1378.58,1136.76,-17.54,17,19324.92,-4110.94
+Horizon Mech Solutions,Thermal Management,1,1,4279.67,3968.75,-7.27,16,63500.0,-4974.72
+Dusk Manufacturing Co,Thermal Management,1,3,3844.8,3652.78,-4.99,27,98624.97,-5184.63
+Riverton Manufacturing,Mechanical,1,1,1445.74,1337.06,-7.52,55,73538.3,-5977.4
+Trident Industrial Parts,Structural,1,1,1249.71,922.07,-26.22,20,18441.4,-6552.8
+Dusk Manufacturing Co,Mechanical,3,3,931.69,345.57,-62.91,14,4837.93,-8205.8
+Coastal Precision Parts,Hydraulic,1,4,6087.57,5959.46,-2.1,72,429081.28,-9223.76
+Tri-State Fabricators Inc,Electrical,1,1,1784.91,850.08,-52.37,10,8500.8,-9348.3
+Riverton Manufacturing,Electrical,1,2,11543.55,11149.04,-3.42,28,312173.17,-11046.23
+Stratos Machined Parts,Thermal Management,1,1,5948.34,3712.73,-37.58,5,18563.65,-11178.05
+Badlands Components LLC,Thermal Management,4,5,2969.34,2818.75,-5.07,101,284693.65,-15209.62
+Crestfall Components,Thermal Management,2,2,2872.94,1745.3,-39.25,14,24434.14,-15787.07
+Ironclad Assemblies,Structural,2,4,1444.66,1225.98,-15.14,74,90722.62,-16182.37
+Mesa Components Corp,Structural,1,1,911.06,204.25,-77.58,24,4902.0,-16963.44
+Badlands Components LLC,Mechanical,1,1,3409.96,2765.81,-18.89,27,74676.87,-17392.05
+Dusk Manufacturing Co,Structural,2,4,974.78,510.92,-47.59,43,21969.61,-19945.83
+Granite Valley Mfg,Mechanical,3,1,3420.63,1065.57,-68.85,9,9590.13,-21195.51
+Coastal Precision Parts,Mechanical,4,2,4013.37,1624.1,-59.53,10,16241.03,-23892.67
+Crestfall Components,Structural,1,2,1659.37,792.69,-52.23,29,22988.08,-25133.65
+Cascade Tooling Solutions,Electrical,1,2,9713.6,6328.7,-34.85,8,50629.56,-27079.24
+Alpine Fabrications Inc,Structural,3,2,5093.11,3769.67,-25.99,38,143247.37,-50290.99
+Stratos Machined Parts,Structural,1,3,1661.03,754.09,-54.6,69,52032.39,-62578.68
+Trident Industrial Parts,Hydraulic,1,1,5325.11,1987.15,-62.68,19,37755.85,-63421.24
+Redwood Stampings Inc,Optical,3,1,37773.68,5610.58,-85.15,2,11221.16,-64326.19
+Bayside Precision LLC,Optical,1,1,45843.74,12780.02,-72.12,2,25560.04,-66127.44
+Granite Valley Mfg,Structural,1,7,1552.59,1168.17,-24.76,193,225457.38,-74192.49
+Zenith Alloy Solutions,Mechanical,3,2,4493.17,3418.68,-23.91,71,242726.38,-76288.8
+Polaris Metals Group,Electrical,1,1,3708.12,2231.9,-39.81,56,124986.4,-82668.32
+Tri-State Fabricators Inc,Hydraulic,1,1,6754.25,3479.23,-48.49,27,93939.21,-88425.54
+Alpine Fabrications Inc,Electrical,1,2,6038.39,2406.67,-60.14,26,62573.31,-94424.75
+Badlands Components LLC,Structural,2,1,1464.44,136.94,-90.65,72,9859.68,-95579.84
+Lowland Metal Works,Optical,1,1,34716.92,4779.42,-86.23,4,19117.68,-119750.0
+Zenith Alloy Solutions,Structural,4,6,1432.56,562.84,-60.71,138,77671.51,-120021.53
+Ironclad Assemblies,Electrical,2,6,7794.62,6259.33,-19.7,89,557080.06,-136640.77
+Eagle Ridge Components,Thermal Management,1,3,4474.56,1192.06,-73.36,42,50066.37,-137865.15
+Ironclad Assemblies,Hydraulic,2,3,6771.52,4603.73,-32.01,65,299242.13,-140906.99
+Granite Valley Mfg,Optical,3,3,20334.94,14136.94,-30.48,25,353423.54,-154950.03
+Hollowpoint Alloys Inc,Electrical,1,2,11394.95,2170.96,-80.95,18,39077.24,-166031.86
+Dusk Manufacturing Co,Hydraulic,5,4,4456.85,2430.69,-45.46,87,211470.18,-176275.87
+Zenith Alloy Solutions,Optical,2,5,29743.64,21044.17,-29.25,22,462971.7,-191388.34
+Granite Valley Mfg,Hydraulic,2,5,5661.47,3471.05,-38.69,88,305452.42,-192756.59
+Granite Valley Mfg,Electrical,4,4,8555.7,6293.87,-26.44,112,704913.74,-253324.86
+Badlands Components LLC,Hydraulic,2,6,6602.37,3856.83,-41.58,93,358684.76,-255335.72
+Zenith Alloy Solutions,Hydraulic,2,5,4703.85,2472.22,-47.44,141,348583.7,-314658.96
+Riverton Manufacturing,Optical,1,1,40003.36,21196.29,-47.01,25,529907.25,-470176.75
+Zenith Alloy Solutions,Electrical,3,7,11459.81,9708.01,-15.29,276,2679410.39,-483497.91
+Dusk Manufacturing Co,Electrical,3,6,10528.02,5026.63,-52.25,105,527796.64,-577645.39
+Pacific Alloy Works,Optical,1,3,32337.73,10586.96,-67.26,54,571696.0,-1174541.42
+Coastal Precision Parts,Optical,1,5,46957.09,6967.04,-85.16,62,431956.38,-2479383.2

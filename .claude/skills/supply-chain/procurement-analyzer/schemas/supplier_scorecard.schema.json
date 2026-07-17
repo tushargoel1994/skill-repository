@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "supplier_scorecard.py output",
+  "description": "Requires --component or --supplier (never neither). Row identity in component_breakdown depends on filters.component: if set, each row is one supplier (key: supplier_name); if null (cross-component run for one fixed supplier), each row is one component (key: component_category) instead — supplier_name is omitted since it's already fixed by filters.supplier. criticality_breakdown is the same axis with component_criticality added as a second groupby key. Optionally narrow further with --startdate/--enddate (YYYY-MM-DD, inclusive on both ends) — order-date range filtering, usable on any run regardless of whether --component and/or --supplier is set. This subsumes the retired supplier_landed_cost operation's only unique capability; total_actual_cost_per_unit/avg_unit_price here are the same spend-weighted formulas it used to export as total_actual_cost_per_unit/weighted_avg_unit_price.",
+  "type": "object",
+  "$defs": {
+    "scorecard_fields": {
+      "type": "object",
+      "properties": {
+        "supplier_name": {"type": "string", "description": "Present only when filters.component is set."},
+        "component_category": {"type": "string", "description": "Present only when filters.component is null (cross-component supplier run)."},
+        "component_criticality": {"type": "string", "description": "Present only in criticality_breakdown."},
+        "pct_spend_contribution": {"type": "number", "description": "0-100. This row's % share of total spend within the filtered scope."},
+        "avg_unit_price": {"type": "number", "description": "Spend-weighted: total_spend / total_qty, not a plain mean of unit_cost_usd. Same formula the retired supplier_landed_cost.py exported as weighted_avg_unit_price."},
+        "total_actual_cost_per_unit": {"type": "number", "description": "(total_spend + rework_cost) / total_qty. Identical formula the retired supplier_landed_cost.py exported under the same field name."},
+        "otd_pct": {"type": "number", "description": "0-100. On-time delivery rate."},
+        "avg_days_late": {"type": ["number", "null"]},
+        "md_rate_pct": {"type": "number", "description": "0-100. Manufacturing-defect event rate."},
+        "md_rate_pct_supplier_error": {"type": "number", "description": "0-100. Rate of defects attributed to supplier fault."},
+        "rework_cost_pct_of_spend": {"type": "number", "description": "0-100. rework_cost / total_spend * 100."}
+      },
+      "required": [
+        "pct_spend_contribution", "avg_unit_price", "total_actual_cost_per_unit", "otd_pct",
+        "avg_days_late", "md_rate_pct", "md_rate_pct_supplier_error", "rework_cost_pct_of_spend"
+      ]
+    }
+  },
+  "properties": {
+    "filters": {
+      "type": "object",
+      "properties": {
+        "component": {"type": ["string", "null"]},
+        "supplier": {"type": ["string", "null"]},
+        "criticality": {"type": ["string", "null"]},
+        "start_date": {"type": ["string", "null"], "format": "date"},
+        "end_date": {"type": ["string", "null"], "format": "date"}
+      },
+      "required": ["component", "supplier", "criticality", "start_date", "end_date"]
+    },
+    "component_breakdown": {
+      "type": "array",
+      "description": "Primary breakdown — one row per supplier (filters.component set) or per component (filters.component null). Same data previously exported under the key \"suppliers\".",
+      "items": {"$ref": "#/$defs/scorecard_fields"}
+    },
+    "criticality_breakdown": {
+      "type": "array",
+      "description": "Same axis as component_breakdown, with component_criticality added as a second groupby key.",
+      "items": {"$ref": "#/$defs/scorecard_fields"}
+    }
+  },
+  "required": ["filters", "component_breakdown", "criticality_breakdown"],
+  "additionalProperties": false
+}

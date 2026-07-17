@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "criticality_supplier_heatmap.py output (criticality_supplier_segments.json)",
+  "description": "Always a flat object — criticality_supplier_heatmap.py requires --component. component_breakdown is one row per supplier (total spend across all criticality tiers); criticality_breakdown is the same spend/share data in long form, one row per (supplier_name, component_criticality) — this is the exact matrix the heatmap image and `segments` below are both built from. segments buckets suppliers by their highest share in any single criticality tier: strategic (>=25%), major (>=10% and <25%), smaller (<10% everywhere) — cross-reference a flagged supplier's qualifying_tiers against criticality_breakdown's share_pct rows for the same supplier to see the full picture.",
+  "type": "object",
+  "$defs": {
+    "qualifying_tier": {
+      "type": "object",
+      "properties": {
+        "component_criticality": {"type": "string"},
+        "share_pct": {"type": "number", "description": "This supplier's % share of that criticality tier's total spend."}
+      },
+      "required": ["component_criticality", "share_pct"],
+      "additionalProperties": false
+    },
+    "flagged_supplier": {
+      "type": "object",
+      "description": "A supplier in strategic_suppliers or major_suppliers. qualifying_tiers lists every tier where they crossed that bucket's threshold, richest share first — this is what tells you WHICH tier drove the classification without recomputing the share matrix by hand. CAVEAT: this is a spend-share threshold with no minimum sample-size floor — a supplier can qualify off a single PO if that tier's total spend is small. Cross-check po_count/n_projects from supplier_scorecard before treating the label as meaningful.",
+      "properties": {
+        "supplier_name": {"type": "string"},
+        "qualifying_tiers": {"type": "array", "items": {"$ref": "#/$defs/qualifying_tier"}}
+      },
+      "required": ["supplier_name", "qualifying_tiers"],
+      "additionalProperties": false
+    }
+  },
+  "properties": {
+    "filters": {
+      "type": "object",
+      "properties": {
+        "component": {"type": "string"},
+        "supplier": {"type": ["string", "null"]},
+        "criticality": {"type": ["string", "null"]}
+      },
+      "required": ["component", "supplier", "criticality"]
+    },
+    "component_breakdown": {
+      "type": "array",
+      "description": "One row per supplier: total spend across all criticality tiers in this component.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "supplier_name": {"type": "string"},
+          "total_spend": {"type": "number"}
+        },
+        "required": ["supplier_name", "total_spend"],
+        "additionalProperties": false
+      }
+    },
+    "criticality_breakdown": {
+      "type": "array",
+      "description": "One row per (supplier_name, component_criticality) combination — long form of the heatmap's underlying pivot/share matrices.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "supplier_name": {"type": "string"},
+          "component_criticality": {"type": "string"},
+          "spend": {"type": "number"},
+          "share_pct": {"type": "number", "description": "This supplier's % share of this criticality tier's total spend."}
+        },
+        "required": ["supplier_name", "component_criticality", "spend", "share_pct"],
+        "additionalProperties": false
+      }
+    },
+    "segments": {
+      "type": "object",
+      "properties": {
+        "strategic_suppliers": {"type": "array", "items": {"$ref": "#/$defs/flagged_supplier"}},
+        "major_suppliers": {"type": "array", "items": {"$ref": "#/$defs/flagged_supplier"}},
+        "smaller_suppliers": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Flat supplier_name list — no per-tier detail since, by definition, none of these crossed any threshold."
+        }
+      },
+      "required": ["strategic_suppliers", "major_suppliers", "smaller_suppliers"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["filters", "component_breakdown", "criticality_breakdown", "segments"],
+  "additionalProperties": false
+}

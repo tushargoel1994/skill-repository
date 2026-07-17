@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "supplier_landed_cost.py output",
+  "description": "Requires --supplier (always). --component optionally narrows to one component (otherwise all components the supplier touches, after any date filtering, are covered). --startdate/--enddate independently optionally filter order_date (inclusive on both ends). All figures are the target supplier's own data only — no peer comparison. weighted_avg_unit_price and total_actual_cost_per_unit are both spend-weighted (total_spend / total_qty and total_cost / total_qty respectively), NOT a plain mean of unit_cost_usd, since an unweighted mean misrepresents the true average price paid whenever PO sizes vary. total_actual_cost_per_unit is the identical formula supplier_scorecard.py exports under the same field name — the two are directly comparable.",
+  "type": "object",
+  "properties": {
+    "filters": {
+      "type": "object",
+      "properties": {
+        "component": {"type": ["string", "null"]},
+        "supplier": {"type": "string"},
+        "start_date": {"type": ["string", "null"], "format": "date"},
+        "end_date": {"type": ["string", "null"], "format": "date"}
+      },
+      "required": ["component", "supplier", "start_date", "end_date"],
+      "additionalProperties": false
+    },
+    "component_breakdown": {
+      "type": "array",
+      "description": "One row per component_category, sorted by total_spend descending. A single row when --component was given.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "component_category": {"type": "string"},
+          "po_count": {"type": "integer"},
+          "total_qty": {"type": "number"},
+          "total_spend": {"type": "number"},
+          "total_rework_cost": {"type": "number"},
+          "total_cost": {"type": "number", "description": "total_spend + total_rework_cost."},
+          "weighted_avg_unit_price": {"type": "number", "description": "total_spend / total_qty. Spend-weighted, not a plain mean of unit_cost_usd."},
+          "total_actual_cost_per_unit": {"type": "number", "description": "total_cost / total_qty."}
+        },
+        "required": [
+          "component_category", "po_count", "total_qty", "total_spend", "total_rework_cost",
+          "total_cost", "weighted_avg_unit_price", "total_actual_cost_per_unit"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "criticality_breakdown": {
+      "type": "array",
+      "description": "One row per (component_category, component_criticality) combination present in scope, sorted by total_spend descending.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "component_category": {"type": "string"},
+          "component_criticality": {"type": "string"},
+          "po_count": {"type": "integer"},
+          "total_qty": {"type": "number"},
+          "total_spend": {"type": "number"},
+          "total_rework_cost": {"type": "number"},
+          "total_cost": {"type": "number", "description": "total_spend + total_rework_cost."},
+          "weighted_avg_unit_price": {"type": "number", "description": "total_spend / total_qty. Spend-weighted, not a plain mean of unit_cost_usd."},
+          "total_actual_cost_per_unit": {"type": "number", "description": "total_cost / total_qty."}
+        },
+        "required": [
+          "component_category", "component_criticality", "po_count", "total_qty", "total_spend",
+          "total_rework_cost", "total_cost", "weighted_avg_unit_price", "total_actual_cost_per_unit"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["filters", "component_breakdown", "criticality_breakdown"],
+  "additionalProperties": false
+}

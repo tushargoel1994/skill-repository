@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "defect_root_cause_analysis.py output",
+  "description": "Always a flat object — defect_root_cause_analysis.py requires --component. Only rows where has_md_event is True are included in all four arrays. supplier_criticality_breakdown is supplier_schedule_impact split further by component_criticality — the only one of this operation's three original axes (fault type / supplier / project) that gains the criticality-split second level; fault_type_breakdown and project_schedule_impact stay single-level. Named supplier_schedule_impact / supplier_criticality_breakdown rather than the generic component_breakdown / criticality_breakdown pair used elsewhere, since this op already has three pre-existing breakdown axes and the generic names would read ambiguously next to fault_type_breakdown / project_schedule_impact.",
+  "type": "object",
+  "properties": {
+    "filters": {
+      "type": "object",
+      "properties": {
+        "component": {"type": "string"},
+        "supplier": {"type": ["string", "null"]},
+        "criticality": {"type": ["string", "null"]}
+      },
+      "required": ["component", "supplier", "criticality"]
+    },
+    "fault_type_breakdown": {
+      "type": "array",
+      "description": "Pareto of defect events by md_fault_type.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "md_fault_type": {"type": "string", "description": "\"Unspecified\" when md_fault_type is blank on a defect row."},
+          "defect_count": {"type": "integer"},
+          "total_rework_cost": {"type": "number"},
+          "total_days_lost": {"type": ["number", "null"]},
+          "avg_days_lost": {"type": ["number", "null"]},
+          "pct_of_defects": {"type": "number", "description": "0-100. This fault type's share of all defect events in scope."}
+        },
+        "required": ["md_fault_type", "defect_count", "total_rework_cost", "total_days_lost", "avg_days_lost", "pct_of_defects"],
+        "additionalProperties": false
+      }
+    },
+    "supplier_schedule_impact": {
+      "type": "array",
+      "description": "Per-supplier defect frequency, fault attribution, and total schedule days lost.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "supplier_name": {"type": "string"},
+          "defect_count": {"type": "integer"},
+          "supplier_fault_count": {"type": "integer"},
+          "total_days_lost": {"type": ["number", "null"]},
+          "total_rework_cost": {"type": "number"},
+          "supplier_fault_pct": {"type": "number", "description": "0-100. supplier_fault_count / defect_count."},
+          "pct_of_component_days_lost": {"type": "number", "description": "0-100. This supplier's share of total days lost across all suppliers in scope."}
+        },
+        "required": [
+          "supplier_name", "defect_count", "supplier_fault_count", "total_days_lost",
+          "total_rework_cost", "supplier_fault_pct", "pct_of_component_days_lost"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "supplier_criticality_breakdown": {
+      "type": "array",
+      "description": "Same fields as supplier_schedule_impact, grouped by (supplier_name, component_criticality) instead of supplier_name alone. pct_of_component_days_lost is recomputed relative to this array's own total_days_lost sum, not supplier_schedule_impact's.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "supplier_name": {"type": "string"},
+          "component_criticality": {"type": "string"},
+          "defect_count": {"type": "integer"},
+          "supplier_fault_count": {"type": "integer"},
+          "total_days_lost": {"type": ["number", "null"]},
+          "total_rework_cost": {"type": "number"},
+          "supplier_fault_pct": {"type": "number", "description": "0-100. supplier_fault_count / defect_count."},
+          "pct_of_component_days_lost": {"type": "number", "description": "0-100. This row's share of total days lost across all rows in this array."}
+        },
+        "required": [
+          "supplier_name", "component_criticality", "defect_count", "supplier_fault_count",
+          "total_days_lost", "total_rework_cost", "supplier_fault_pct", "pct_of_component_days_lost"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "project_schedule_impact": {
+      "type": "array",
+      "description": "Per-project defect frequency and total schedule days lost. Empty array when project_number isn't populated for any defect row.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "project_number": {"type": "string"},
+          "defect_count": {"type": "integer"},
+          "total_days_lost": {"type": ["number", "null"]},
+          "suppliers_involved": {"type": "array", "items": {"type": "string"}}
+        },
+        "required": ["project_number", "defect_count", "total_days_lost", "suppliers_involved"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "filters", "fault_type_breakdown", "supplier_schedule_impact",
+    "supplier_criticality_breakdown", "project_schedule_impact"
+  ],
+  "additionalProperties": false
+}

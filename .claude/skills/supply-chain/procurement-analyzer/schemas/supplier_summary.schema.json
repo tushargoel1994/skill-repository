@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "supplier_summary.py output",
+  "description": "Requires --supplier (always). --component and --criticality are optional additional filters. category_breakdown compares this supplier against the peer set within the same --component/--criticality scope (i.e. everyone else who supplies that scope), not the whole dataset.",
+  "type": "object",
+  "properties": {
+    "filters": {
+      "type": "object",
+      "properties": {
+        "component": {"type": ["string", "null"]},
+        "supplier": {"type": "string"},
+        "criticality": {"type": ["string", "null"]}
+      },
+      "required": ["component", "supplier", "criticality"]
+    },
+    "summary": {
+      "type": "object",
+      "description": "Headline stats for this supplier across the filtered scope.",
+      "properties": {
+        "total_spend": {"type": "number"},
+        "po_count": {"type": "integer"},
+        "components_served": {"type": "integer", "description": "Distinct component_category count."},
+        "projects_touched": {"type": "integer"},
+        "first_po_date": {"type": ["string", "null"], "format": "date"},
+        "last_po_date": {"type": ["string", "null"], "format": "date"},
+        "ontime_pct": {"type": "number"},
+        "md_rate_pct": {"type": "number"},
+        "total_rework_cost": {"type": "number"},
+        "days_lost_to_md": {"type": "integer"},
+        "open_late_pos": {"type": "integer"}
+      },
+      "required": [
+        "total_spend", "po_count", "components_served", "projects_touched",
+        "first_po_date", "last_po_date", "ontime_pct", "md_rate_pct",
+        "total_rework_cost", "days_lost_to_md", "open_late_pos"
+      ],
+      "additionalProperties": false
+    },
+    "category_breakdown": {
+      "type": "array",
+      "description": "One row per component_category this supplier serves within the filtered scope, sorted by total_spend descending.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "component_category": {"type": "string"},
+          "po_count": {"type": "integer"},
+          "total_spend": {"type": "number"},
+          "total_qty": {"type": "number"},
+          "avg_unit_price": {"type": "number", "description": "Spend-weighted: total_spend / total_qty, not a plain mean of unit_cost_usd."},
+          "otd_pct": {"type": "number"},
+          "md_rate_pct": {"type": "number"},
+          "total_rework_cost": {"type": "number"},
+          "total_days_lost_to_md": {"type": ["number", "null"]},
+          "share_of_category_spend_pct": {"type": "number", "description": "This supplier's % of total peer spend in this category (within the filtered scope)."},
+          "is_dominant_supplier": {"type": "boolean", "description": "True when share_of_category_spend_pct >= 25%."},
+          "price_index_vs_peers_pct": {"type": "number", "description": "This supplier's avg_unit_price / peer avg_unit_price * 100. 100 = at market; >100 = pricier than peers. Both sides are spend-weighted (total_spend / total_qty), not plain means of unit_cost_usd."},
+          "landed_cost_per_unit": {"type": ["number", "null"], "description": "(total_spend + total_rework_cost) / total_qty."}
+        },
+        "required": [
+          "component_category", "po_count", "total_spend", "total_qty", "avg_unit_price",
+          "otd_pct", "md_rate_pct", "total_rework_cost", "total_days_lost_to_md",
+          "share_of_category_spend_pct", "is_dominant_supplier", "price_index_vs_peers_pct", "landed_cost_per_unit"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "fault_type_breakdown": {
+      "type": "array",
+      "description": "Pareto of md_fault_type among this supplier's defect events. Empty array if no MD events recorded.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "md_fault_type": {"type": "string"},
+          "defect_count": {"type": "integer"},
+          "pct_of_defects": {"type": "number"}
+        },
+        "required": ["md_fault_type", "defect_count", "pct_of_defects"],
+        "additionalProperties": false
+      }
+    },
+    "fault_attribution": {
+      "type": "object",
+      "description": "Split of this supplier's MD events by whether the supplier was at fault.",
+      "properties": {
+        "supplier_fault_count": {"type": "integer"},
+        "not_supplier_fault_count": {"type": "integer"},
+        "supplier_fault_pct": {"type": ["number", "null"], "description": "null when there are no attributable MD events."}
+      },
+      "required": ["supplier_fault_count", "not_supplier_fault_count", "supplier_fault_pct"],
+      "additionalProperties": false
+    },
+    "open_late_orders": {
+      "type": "array",
+      "description": "Currently open, past-due POs for this supplier. Empty array if none.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "order_id": {"type": "string"},
+          "component_category": {"type": "string"},
+          "project_number": {"type": ["string", "null"]},
+          "component_criticality": {"type": "string"},
+          "qty_ordered": {"type": "number"},
+          "commit_date": {"type": "string", "format": "date"}
+        },
+        "required": ["order_id", "component_category", "project_number", "component_criticality", "qty_ordered", "commit_date"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["filters", "summary", "category_breakdown", "fault_type_breakdown", "fault_attribution", "open_late_orders"],
+  "additionalProperties": false
+}

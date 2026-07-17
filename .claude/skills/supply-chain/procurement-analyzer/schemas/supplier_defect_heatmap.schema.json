@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "supplier_defect_heatmap.py output",
+  "description": "Requires --supplier (always). No --component/--criticality arguments exist on this script — analysis is always component-level (x quarter), for the whole supplier across every component they touch. component_quarter_defect_rate mirrors exactly what the heatmap visualizes (same cells, same values), sorted by component_category then chronologically by quarter (parsed as (year, quarter_number), not the lexical string sort the original reference method used).",
+  "type": "object",
+  "properties": {
+    "filters": {
+      "type": "object",
+      "properties": {
+        "component": {"type": "null", "description": "Always null — this script has no --component argument."},
+        "supplier": {"type": "string"},
+        "criticality": {"type": "null", "description": "Always null — this script has no --criticality argument."}
+      },
+      "required": ["component", "supplier", "criticality"],
+      "additionalProperties": false
+    },
+    "component_quarter_defect_rate": {
+      "type": "array",
+      "description": "One row per (component_category, quarter) combination present in the supplier's data.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "component_category": {"type": "string"},
+          "quarter": {"type": "string", "description": "e.g. 'Q1-2024'."},
+          "po_count": {"type": "integer"},
+          "defect_count": {"type": "integer", "description": "Count of POs with has_md_event == True."},
+          "md_rate_pct": {"type": "number", "description": "0-100. defect_count / po_count * 100."}
+        },
+        "required": ["component_category", "quarter", "po_count", "defect_count", "md_rate_pct"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["filters", "component_quarter_defect_rate"],
+  "additionalProperties": false
+}

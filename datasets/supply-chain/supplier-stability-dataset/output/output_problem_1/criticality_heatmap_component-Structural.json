@@ -1,0 +1,899 @@
+{
+  "filters": {
+    "component": "Structural",
+    "supplier": null,
+    "criticality": null
+  },
+  "component_breakdown": [
+    {
+      "supplier_name": "Granite Valley Mfg",
+      "total_spend": 327928.32
+    },
+    {
+      "supplier_name": "Zenith Alloy Solutions",
+      "total_spend": 304015.71
+    },
+    {
+      "supplier_name": "Alpine Fabrications Inc",
+      "total_spend": 250202.78
+    },
+    {
+      "supplier_name": "Ironclad Assemblies",
+      "total_spend": 174513.02
+    },
+    {
+      "supplier_name": "Greystone Fabrications",
+      "total_spend": 171911.18
+    },
+    {
+      "supplier_name": "Badlands Components LLC",
+      "total_spend": 131408.02
+    },
+    {
+      "supplier_name": "Western Alloy Fab",
+      "total_spend": 97172.84
+    },
+    {
+      "supplier_name": "Foxridge Assemblies",
+      "total_spend": 89910.23
+    },
+    {
+      "supplier_name": "Crestline Tooling Co",
+      "total_spend": 88781.76
+    },
+    {
+      "supplier_name": "Helix Precision Mfg",
+      "total_spend": 73440.3
+    },
+    {
+      "supplier_name": "Trident Industrial Parts",
+      "total_spend": 69679.51
+    },
+    {
+      "supplier_name": "Tri-State Fabricators Inc",
+      "total_spend": 60888.69
+    },
+    {
+      "supplier_name": "Stratos Machined Parts",
+      "total_spend": 57015.48
+    },
+    {
+      "supplier_name": "Ironwood Tooling Group",
+      "total_spend": 54685.24
+    },
+    {
+      "supplier_name": "Dusk Manufacturing Co",
+      "total_spend": 48288.61
+    },
+    {
+      "supplier_name": "Hollowpoint Alloys Inc",
+      "total_spend": 42817.39
+    },
+    {
+      "supplier_name": "Coastal Precision Parts",
+      "total_spend": 34792.23
+    },
+    {
+      "supplier_name": "Horizon Mech Solutions",
+      "total_spend": 28974.98
+    },
+    {
+      "supplier_name": "Crestfall Components",
+      "total_spend": 27966.19
+    },
+    {
+      "supplier_name": "Pacific Alloy Works",
+      "total_spend": 22468.53
+    },
+    {
+      "supplier_name": "Harbor Castings LLC",
+      "total_spend": 18633.68
+    },
+    {
+      "supplier_name": "Eagle Ridge Components",
+      "total_spend": 16438.27
+    },
+    {
+      "supplier_name": "NorthStar Electro-Mech",
+      "total_spend": 15603.32
+    },
+    {
+      "supplier_name": "Polaris Metals Group",
+      "total_spend": 14927.35
+    },
+    {
+      "supplier_name": "Redwood Stampings Inc",
+      "total_spend": 13386.0
+    },
+    {
+      "supplier_name": "Cornerstone Electro-Mech",
+      "total_spend": 12734.87
+    },
+    {
+      "supplier_name": "Lakewood Electro Systems",
+      "total_spend": 8755.33
+    },
+    {
+      "supplier_name": "Keystone Bearing Systems",
+      "total_spend": 7974.96
+    },
+    {
+      "supplier_name": "Cascade Tooling Solutions",
+      "total_spend": 6832.62
+    },
+    {
+      "supplier_name": "Mesa Components Corp",
+      "total_spend": 5813.06
+    },
+    {
+      "supplier_name": "Timberline Fasteners",
+      "total_spend": 5166.0
+    },
+    {
+      "supplier_name": "Summit Hydraulics LLC",
+      "total_spend": 3030.78
+    },
+    {
+      "supplier_name": "Bayside Precision LLC",
+      "total_spend": 2926.56
+    },
+    {
+      "supplier_name": "Riverton Manufacturing",
+      "total_spend": 1222.8
+    },
+    {
+      "supplier_name": "Lowland Metal Works",
+      "total_spend": 559.6
+    }
+  ],
+  "criticality_breakdown": [
+    {
+      "supplier_name": "Zenith Alloy Solutions",
+      "component_criticality": "Standard",
+      "spend": 251918.48,
+      "share_pct": 23.49
+    },
+    {
+      "supplier_name": "Greystone Fabrications",
+      "component_criticality": "High",
+      "spend": 160476.05,
+      "share_pct": 19.82
+    },
+    {
+      "supplier_name": "Granite Valley Mfg",
+      "component_criticality": "High",
+      "spend": 130444.34,
+      "share_pct": 16.11
+    },
+    {
+      "supplier_name": "Badlands Components LLC",
+      "component_criticality": "High",
+      "spend": 121548.34,
+      "share_pct": 15.01
+    },
+    {
+      "supplier_name": "Granite Valley Mfg",
+      "component_criticality": "Standard",
+      "spend": 119157.38,
+      "share_pct": 11.11
+    },
+    {
+      "supplier_name": "Alpine Fabrications Inc",
+      "component_criticality": "High",
+      "spend": 102432.09,
+      "share_pct": 12.65
+    },
+    {
+      "supplier_name": "Western Alloy Fab",
+      "component_criticality": "Standard",
+      "spend": 97172.84,
+      "share_pct": 9.06
+    },
+    {
+      "supplier_name": "Crestline Tooling Co",
+      "component_criticality": "Standard",
+      "spend": 88781.76,
+      "share_pct": 8.28
+    },
+    {
+      "supplier_name": "Foxridge Assemblies",
+      "component_criticality": "Standard",
+      "spend": 85981.34,
+      "share_pct": 8.02
+    },
+    {
+      "supplier_name": "Ironclad Assemblies",
+      "component_criticality": "High",
+      "spend": 83502.44,
+      "share_pct": 10.31
+    },
+    {
+      "supplier_name": "Granite Valley Mfg",
+      "component_criticality": "Critical",
+      "spend": 78326.6,
+      "share_pct": 19.17
+    },
+    {
+      "supplier_name": "Alpine Fabrications Inc",
+      "component_criticality": "Standard",
+      "spend": 75895.67,
+      "share_pct": 7.08
+    },
+    {
+      "supplier_name": "Alpine Fabrications Inc",
+      "component_criticality": "Critical",
+      "spend": 71875.02,
+      "share_pct": 17.59
+    },
+    {
+      "supplier_name": "Helix Precision Mfg",
+      "component_criticality": "Standard",
+      "spend": 71373.12,
+      "share_pct": 6.65
+    },
+    {
+      "supplier_name": "Ironclad Assemblies",
+      "component_criticality": "Standard",
+      "spend": 68771.35,
+      "share_pct": 6.41
+    },
+    {
+      "supplier_name": "Tri-State Fabricators Inc",
+      "component_criticality": "Standard",
+      "spend": 60888.69,
+      "share_pct": 5.68
+    },
+    {
+      "supplier_name": "Ironwood Tooling Group",
+      "component_criticality": "Critical",
+      "spend": 54685.24,
+      "share_pct": 13.38
+    },
+    {
+      "supplier_name": "Trident Industrial Parts",
+      "component_criticality": "Critical",
+      "spend": 51238.11,
+      "share_pct": 12.54
+    },
+    {
+      "supplier_name": "Zenith Alloy Solutions",
+      "component_criticality": "High",
+      "spend": 41903.47,
+      "share_pct": 5.17
+    },
+    {
+      "supplier_name": "Coastal Precision Parts",
+      "component_criticality": "High",
+      "spend": 34792.23,
+      "share_pct": 4.3
+    },
+    {
+      "supplier_name": "Stratos Machined Parts",
+      "component_criticality": "High",
+      "spend": 34599.7,
+      "share_pct": 4.27
+    },
+    {
+      "supplier_name": "Crestfall Components",
+      "component_criticality": "Standard",
+      "spend": 27966.19,
+      "share_pct": 2.61
+    },
+    {
+      "supplier_name": "Dusk Manufacturing Co",
+      "component_criticality": "High",
+      "spend": 25423.96,
+      "share_pct": 3.14
+    },
+    {
+      "supplier_name": "Hollowpoint Alloys Inc",
+      "component_criticality": "Critical",
+      "spend": 25295.2,
+      "share_pct": 6.19
+    },
+    {
+      "supplier_name": "Ironclad Assemblies",
+      "component_criticality": "Critical",
+      "spend": 22239.23,
+      "share_pct": 5.44
+    },
+    {
+      "supplier_name": "Horizon Mech Solutions",
+      "component_criticality": "High",
+      "spend": 19324.92,
+      "share_pct": 2.39
+    },
+    {
+      "supplier_name": "Harbor Castings LLC",
+      "component_criticality": "High",
+      "spend": 18633.68,
+      "share_pct": 2.3
+    },
+    {
+      "supplier_name": "Trident Industrial Parts",
+      "component_criticality": "Standard",
+      "spend": 18441.4,
+      "share_pct": 1.72
+    },
+    {
+      "supplier_name": "Hollowpoint Alloys Inc",
+      "component_criticality": "Standard",
+      "spend": 17522.19,
+      "share_pct": 1.63
+    },
+    {
+      "supplier_name": "Stratos Machined Parts",
+      "component_criticality": "Standard",
+      "spend": 17432.69,
+      "share_pct": 1.63
+    },
+    {
+      "supplier_name": "Pacific Alloy Works",
+      "component_criticality": "High",
+      "spend": 16047.6,
+      "share_pct": 1.98
+    },
+    {
+      "supplier_name": "Eagle Ridge Components",
+      "component_criticality": "Critical",
+      "spend": 15680.52,
+      "share_pct": 3.84
+    },
+    {
+      "supplier_name": "NorthStar Electro-Mech",
+      "component_criticality": "Critical",
+      "spend": 15603.32,
+      "share_pct": 3.82
+    },
+    {
+      "supplier_name": "Polaris Metals Group",
+      "component_criticality": "Standard",
+      "spend": 14927.35,
+      "share_pct": 1.39
+    },
+    {
+      "supplier_name": "Redwood Stampings Inc",
+      "component_criticality": "High",
+      "spend": 13386.0,
+      "share_pct": 1.65
+    },
+    {
+      "supplier_name": "Cornerstone Electro-Mech",
+      "component_criticality": "Critical",
+      "spend": 12734.87,
+      "share_pct": 3.12
+    },
+    {
+      "supplier_name": "Dusk Manufacturing Co",
+      "component_criticality": "Standard",
+      "spend": 11735.85,
+      "share_pct": 1.09
+    },
+    {
+      "supplier_name": "Greystone Fabrications",
+      "component_criticality": "Standard",
+      "spend": 11435.13,
+      "share_pct": 1.07
+    },
+    {
+      "supplier_name": "Dusk Manufacturing Co",
+      "component_criticality": "Critical",
+      "spend": 11128.8,
+      "share_pct": 2.72
+    },
+    {
+      "supplier_name": "Zenith Alloy Solutions",
+      "component_criticality": "Critical",
+      "spend": 10193.76,
+      "share_pct": 2.49
+    },
+    {
+      "supplier_name": "Badlands Components LLC",
+      "component_criticality": "Critical",
+      "spend": 9859.68,
+      "share_pct": 2.41
+    },
+    {
+      "supplier_name": "Horizon Mech Solutions",
+      "component_criticality": "Standard",
+      "spend": 9650.06,
+      "share_pct": 0.9
+    },
+    {
+      "supplier_name": "Lakewood Electro Systems",
+      "component_criticality": "Critical",
+      "spend": 8755.33,
+      "share_pct": 2.14
+    },
+    {
+      "supplier_name": "Keystone Bearing Systems",
+      "component_criticality": "Standard",
+      "spend": 7974.96,
+      "share_pct": 0.74
+    },
+    {
+      "supplier_name": "Cascade Tooling Solutions",
+      "component_criticality": "Critical",
+      "spend": 6832.62,
+      "share_pct": 1.67
+    },
+    {
+      "supplier_name": "Timberline Fasteners",
+      "component_criticality": "Standard",
+      "spend": 5166.0,
+      "share_pct": 0.48
+    },
+    {
+      "supplier_name": "Pacific Alloy Works",
+      "component_criticality": "Standard",
+      "spend": 5041.65,
+      "share_pct": 0.47
+    },
+    {
+      "supplier_name": "Stratos Machined Parts",
+      "component_criticality": "Critical",
+      "spend": 4983.09,
+      "share_pct": 1.22
+    },
+    {
+      "supplier_name": "Mesa Components Corp",
+      "component_criticality": "Critical",
+      "spend": 4902.0,
+      "share_pct": 1.2
+    },
+    {
+      "supplier_name": "Foxridge Assemblies",
+      "component_criticality": "High",
+      "spend": 3928.89,
+      "share_pct": 0.49
+    },
+    {
+      "supplier_name": "Summit Hydraulics LLC",
+      "component_criticality": "Standard",
+      "spend": 3030.78,
+      "share_pct": 0.28
+    },
+    {
+      "supplier_name": "Bayside Precision LLC",
+      "component_criticality": "Critical",
+      "spend": 2926.56,
+      "share_pct": 0.72
+    },
+    {
+      "supplier_name": "Helix Precision Mfg",
+      "component_criticality": "High",
+      "spend": 2067.18,
+      "share_pct": 0.26
+    },
+    {
+      "supplier_name": "Pacific Alloy Works",
+      "component_criticality": "Critical",
+      "spend": 1379.28,
+      "share_pct": 0.34
+    },
+    {
+      "supplier_name": "Riverton Manufacturing",
+      "component_criticality": "High",
+      "spend": 1222.8,
+      "share_pct": 0.15
+    },
+    {
+      "supplier_name": "Mesa Components Corp",
+      "component_criticality": "Standard",
+      "spend": 911.06,
+      "share_pct": 0.08
+    },
+    {
+      "supplier_name": "Eagle Ridge Components",
+      "component_criticality": "Standard",
+      "spend": 757.75,
+      "share_pct": 0.07
+    },
+    {
+      "supplier_name": "Lowland Metal Works",
+      "component_criticality": "Standard",
+      "spend": 559.6,
+      "share_pct": 0.05
+    },
+    {
+      "supplier_name": "Badlands Components LLC",
+      "component_criticality": "Standard",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Eagle Ridge Components",
+      "component_criticality": "High",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Foxridge Assemblies",
+      "component_criticality": "Critical",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Crestfall Components",
+      "component_criticality": "High",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Crestfall Components",
+      "component_criticality": "Critical",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Coastal Precision Parts",
+      "component_criticality": "Critical",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Cascade Tooling Solutions",
+      "component_criticality": "High",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Cornerstone Electro-Mech",
+      "component_criticality": "High",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Coastal Precision Parts",
+      "component_criticality": "Standard",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Cascade Tooling Solutions",
+      "component_criticality": "Standard",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Cornerstone Electro-Mech",
+      "component_criticality": "Standard",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Crestline Tooling Co",
+      "component_criticality": "High",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Crestline Tooling Co",
+      "component_criticality": "Critical",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Bayside Precision LLC",
+      "component_criticality": "High",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Bayside Precision LLC",
+      "component_criticality": "Standard",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Harbor Castings LLC",
+      "component_criticality": "Critical",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Greystone Fabrications",
+      "component_criticality": "Critical",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Mesa Components Corp",
+      "component_criticality": "High",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "NorthStar Electro-Mech",
+      "component_criticality": "High",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Lakewood Electro Systems",
+      "component_criticality": "High",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Lakewood Electro Systems",
+      "component_criticality": "Standard",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Lowland Metal Works",
+      "component_criticality": "Critical",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Keystone Bearing Systems",
+      "component_criticality": "Critical",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Keystone Bearing Systems",
+      "component_criticality": "High",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Hollowpoint Alloys Inc",
+      "component_criticality": "High",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Helix Precision Mfg",
+      "component_criticality": "Critical",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Harbor Castings LLC",
+      "component_criticality": "Standard",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Horizon Mech Solutions",
+      "component_criticality": "Critical",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Ironwood Tooling Group",
+      "component_criticality": "Standard",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Ironwood Tooling Group",
+      "component_criticality": "High",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Lowland Metal Works",
+      "component_criticality": "High",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "NorthStar Electro-Mech",
+      "component_criticality": "Standard",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Summit Hydraulics LLC",
+      "component_criticality": "Critical",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Riverton Manufacturing",
+      "component_criticality": "Critical",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Riverton Manufacturing",
+      "component_criticality": "Standard",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Polaris Metals Group",
+      "component_criticality": "High",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Polaris Metals Group",
+      "component_criticality": "Critical",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Redwood Stampings Inc",
+      "component_criticality": "Critical",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Redwood Stampings Inc",
+      "component_criticality": "Standard",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Summit Hydraulics LLC",
+      "component_criticality": "High",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Tri-State Fabricators Inc",
+      "component_criticality": "High",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Timberline Fasteners",
+      "component_criticality": "Critical",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Timberline Fasteners",
+      "component_criticality": "High",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Tri-State Fabricators Inc",
+      "component_criticality": "Critical",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Western Alloy Fab",
+      "component_criticality": "High",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Trident Industrial Parts",
+      "component_criticality": "High",
+      "spend": 0.0,
+      "share_pct": 0.0
+    },
+    {
+      "supplier_name": "Western Alloy Fab",
+      "component_criticality": "Critical",
+      "spend": 0.0,
+      "share_pct": 0.0
+    }
+  ],
+  "segments": {
+    "strategic_suppliers": [],
+    "major_suppliers": [
+      {
+        "supplier_name": "Alpine Fabrications Inc",
+        "qualifying_tiers": [
+          {
+            "component_criticality": "Critical",
+            "share_pct": 17.59
+          },
+          {
+            "component_criticality": "High",
+            "share_pct": 12.65
+          }
+        ]
+      },
+      {
+        "supplier_name": "Badlands Components LLC",
+        "qualifying_tiers": [
+          {
+            "component_criticality": "High",
+            "share_pct": 15.01
+          }
+        ]
+      },
+      {
+        "supplier_name": "Granite Valley Mfg",
+        "qualifying_tiers": [
+          {
+            "component_criticality": "Critical",
+            "share_pct": 19.17
+          },
+          {
+            "component_criticality": "High",
+            "share_pct": 16.11
+          },
+          {
+            "component_criticality": "Standard",
+            "share_pct": 11.11
+          }
+        ]
+      },
+      {
+        "supplier_name": "Greystone Fabrications",
+        "qualifying_tiers": [
+          {
+            "component_criticality": "High",
+            "share_pct": 19.82
+          }
+        ]
+      },
+      {
+        "supplier_name": "Ironclad Assemblies",
+        "qualifying_tiers": [
+          {
+            "component_criticality": "High",
+            "share_pct": 10.31
+          }
+        ]
+      },
+      {
+        "supplier_name": "Ironwood Tooling Group",
+        "qualifying_tiers": [
+          {
+            "component_criticality": "Critical",
+            "share_pct": 13.38
+          }
+        ]
+      },
+      {
+        "supplier_name": "Trident Industrial Parts",
+        "qualifying_tiers": [
+          {
+            "component_criticality": "Critical",
+            "share_pct": 12.54
+          }
+        ]
+      },
+      {
+        "supplier_name": "Zenith Alloy Solutions",
+        "qualifying_tiers": [
+          {
+            "component_criticality": "Standard",
+            "share_pct": 23.49
+          }
+        ]
+      }
+    ],
+    "smaller_suppliers": [
+      "Bayside Precision LLC",
+      "Cascade Tooling Solutions",
+      "Coastal Precision Parts",
+      "Cornerstone Electro-Mech",
+      "Crestfall Components",
+      "Crestline Tooling Co",
+      "Dusk Manufacturing Co",
+      "Eagle Ridge Components",
+      "Foxridge Assemblies",
+      "Harbor Castings LLC",
+      "Helix Precision Mfg",
+      "Hollowpoint Alloys Inc",
+      "Horizon Mech Solutions",
+      "Keystone Bearing Systems",
+      "Lakewood Electro Systems",
+      "Lowland Metal Works",
+      "Mesa Components Corp",
+      "NorthStar Electro-Mech",
+      "Pacific Alloy Works",
+      "Polaris Metals Group",
+      "Redwood Stampings Inc",
+      "Riverton Manufacturing",
+      "Stratos Machined Parts",
+      "Summit Hydraulics LLC",
+      "Timberline Fasteners",
+      "Tri-State Fabricators Inc",
+      "Western Alloy Fab"
+    ]
+  }
+}

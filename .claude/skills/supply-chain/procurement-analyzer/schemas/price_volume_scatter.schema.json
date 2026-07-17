@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "price_volume_scatter.py output",
+  "description": "Always a flat object — price_volume_scatter.py requires --component. component_breakdown is one row per supplier (the primary axis, since --component is already fixed by the required filter); criticality_breakdown is the same, further split by component_criticality. volume_pct/price_percentile in each array are computed relative to that array's own population.",
+  "type": "object",
+  "properties": {
+    "filters": {
+      "type": "object",
+      "properties": {
+        "component": {"type": "string"},
+        "supplier": {"type": ["string", "null"]},
+        "criticality": {"type": ["string", "null"]}
+      },
+      "required": ["component", "supplier", "criticality"]
+    },
+    "component_breakdown": {
+      "type": "array",
+      "description": "One row per supplier in the filtered scope. This is what the scatter chart and console table visualize.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "supplier_name": {"type": "string"},
+          "avg_price": {"type": "number", "description": "Spend-weighted: total_spend / total_qty, not a plain mean of unit_cost_usd — so PO-size variance doesn't distort price_category."},
+          "total_qty": {"type": "integer"},
+          "total_spend": {"type": "number"},
+          "volume_pct": {"type": "number", "description": "This row's % share of total qty within its own array's population."},
+          "price_percentile": {"type": "number", "description": "0-1. This row's avg_price rank among rows in the same array."},
+          "volume_category": {"type": "string", "enum": ["Low Volume", "Healthy Volume", "Strategic Supplier"]},
+          "price_category": {"type": "string", "enum": ["Cheaper", "Acceptable", "Expensive"]},
+          "segment": {"type": "string", "description": "\"{price_category} / {volume_category}\""}
+        },
+        "required": [
+          "supplier_name", "avg_price", "total_qty", "total_spend", "volume_pct",
+          "price_percentile", "volume_category", "price_category", "segment"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "criticality_breakdown": {
+      "type": "array",
+      "description": "One row per (supplier_name, component_criticality) combination present in scope.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "supplier_name": {"type": "string"},
+          "component_criticality": {"type": "string"},
+          "avg_price": {"type": "number", "description": "Spend-weighted: total_spend / total_qty, not a plain mean of unit_cost_usd."},
+          "total_qty": {"type": "integer"},
+          "total_spend": {"type": "number"},
+          "volume_pct": {"type": "number", "description": "This row's % share of total qty within criticality_breakdown's population (not the same denominator as component_breakdown's volume_pct)."},
+          "price_percentile": {"type": "number", "description": "0-1. This row's avg_price rank among criticality_breakdown rows (not the same population as component_breakdown's price_percentile)."},
+          "volume_category": {"type": "string", "enum": ["Low Volume", "Healthy Volume", "Strategic Supplier"]},
+          "price_category": {"type": "string", "enum": ["Cheaper", "Acceptable", "Expensive"]},
+          "segment": {"type": "string", "description": "\"{price_category} / {volume_category}\""}
+        },
+        "required": [
+          "supplier_name", "component_criticality", "avg_price", "total_qty", "total_spend",
+          "volume_pct", "price_percentile", "volume_category", "price_category", "segment"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["filters", "component_breakdown", "criticality_breakdown"],
+  "additionalProperties": false
+}

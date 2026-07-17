@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "supplier_share_breakdown.py output",
+  "description": "Requires --supplier (always). --component and --project are optional additional filters (--project narrows to one project_number; not validated against the shared commons.py filter set since project isn't a dimension the rest of the skill's scripts support). component_breakdown and criticality_breakdown compare this supplier against the peer set within the same --component/--project scope (everyone else who supplies that scope), not the whole dataset. Only 2 charts are produced (quantity share, spend share), both plotting criticality_breakdown's rows (which already imply the component grouping via the row label) rather than one chart per breakdown level.",
+  "type": "object",
+  "properties": {
+    "filters": {
+      "type": "object",
+      "properties": {
+        "component": {"type": ["string", "null"]},
+        "supplier": {"type": "string"},
+        "project": {"type": ["string", "null"]}
+      },
+      "required": ["component", "supplier", "project"],
+      "additionalProperties": false
+    },
+    "component_breakdown": {
+      "type": "array",
+      "description": "One row per component_category, sorted by total_spend descending. A single row when --component was given.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "component_category": {"type": "string"},
+          "po_count": {"type": "integer"},
+          "qty": {"type": "number"},
+          "total_spend": {"type": "number"},
+          "delayed_po_count": {"type": "integer", "description": "POs where is_late_arrived is True."},
+          "delayed_pct": {"type": "number", "description": "0-100. delayed_po_count / po_count * 100."},
+          "total_days_delayed": {"type": "number", "description": "Sum of days_late across POs where days_late > 0 (early/on-time POs excluded, not counted as negative delay)."},
+          "qty_share_pct": {"type": "number", "description": "This supplier's % of total peer qty in this component, within the filtered --component/--project scope."},
+          "spend_share_pct": {"type": "number", "description": "This supplier's % of total peer spend in this component, within the filtered --component/--project scope."},
+          "is_dominant_supplier": {"type": "boolean", "description": "True when spend_share_pct >= 25%."}
+        },
+        "required": [
+          "component_category", "po_count", "qty", "total_spend", "delayed_po_count", "delayed_pct",
+          "total_days_delayed", "qty_share_pct", "spend_share_pct", "is_dominant_supplier"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "criticality_breakdown": {
+      "type": "array",
+      "description": "One row per (component_category, component_criticality) combination present in the filtered scope, sorted by total_spend descending. This is what both charts plot.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "component_category": {"type": "string"},
+          "component_criticality": {"type": "string"},
+          "po_count": {"type": "integer"},
+          "qty": {"type": "number"},
+          "total_spend": {"type": "number"},
+          "delayed_po_count": {"type": "integer", "description": "POs where is_late_arrived is True."},
+          "delayed_pct": {"type": "number", "description": "0-100. delayed_po_count / po_count * 100."},
+          "total_days_delayed": {"type": "number", "description": "Sum of days_late across POs where days_late > 0 (early/on-time POs excluded, not counted as negative delay)."},
+          "qty_share_pct": {"type": "number", "description": "This supplier's % of total peer qty in this (component, criticality) tier, within the filtered --component/--project scope."},
+          "spend_share_pct": {"type": "number", "description": "This supplier's % of total peer spend in this (component, criticality) tier, within the filtered --component/--project scope."},
+          "is_dominant_supplier": {"type": "boolean", "description": "True when spend_share_pct >= 25%."}
+        },
+        "required": [
+          "component_category", "component_criticality", "po_count", "qty", "total_spend",
+          "delayed_po_count", "delayed_pct", "total_days_delayed", "qty_share_pct",
+          "spend_share_pct", "is_dominant_supplier"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["filters", "component_breakdown", "criticality_breakdown"],
+  "additionalProperties": false
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "supplier_project_component_matrix.py output",
+  "description": "Requires --supplier (always). --component and --project are optional additional filters (--project narrows to one project_number; not validated against the shared commons.py filter set since project isn't a dimension the rest of the skill's scripts support). All figures are the target supplier's own data only — no peer comparison. The heatmap image is component-level only (project x component_category, spend); component_breakdown mirrors that same grouping in JSON, and criticality_breakdown adds a finer project x component x criticality grouping the heatmap does not visualize.",
+  "type": "object",
+  "properties": {
+    "filters": {
+      "type": "object",
+      "properties": {
+        "component": {"type": ["string", "null"]},
+        "supplier": {"type": "string"},
+        "project": {"type": ["string", "null"]}
+      },
+      "required": ["component", "supplier", "project"],
+      "additionalProperties": false
+    },
+    "component_breakdown": {
+      "type": "array",
+      "description": "One row per (project_number, component_category) combination present in scope, sorted by project_number then total_spend descending. This is what the heatmap visualizes (spend only).",
+      "items": {
+        "type": "object",
+        "properties": {
+          "project_number": {"type": "string"},
+          "component_category": {"type": "string"},
+          "po_count": {"type": "integer"},
+          "total_qty": {"type": "number"},
+          "total_spend": {"type": "number"}
+        },
+        "required": ["project_number", "component_category", "po_count", "total_qty", "total_spend"],
+        "additionalProperties": false
+      }
+    },
+    "criticality_breakdown": {
+      "type": "array",
+      "description": "One row per (project_number, component_category, component_criticality) combination present in scope, sorted by project_number then total_spend descending. Not visualized in the heatmap — JSON-only detail.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "project_number": {"type": "string"},
+          "component_category": {"type": "string"},
+          "component_criticality": {"type": "string"},
+          "po_count": {"type": "integer"},
+          "total_qty": {"type": "number"},
+          "total_spend": {"type": "number"}
+        },
+        "required": ["project_number", "component_category", "component_criticality", "po_count", "total_qty", "total_spend"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["filters", "component_breakdown", "criticality_breakdown"],
+  "additionalProperties": false
+}

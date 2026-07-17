@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "component_summary.py output",
+  "description": "component_summary.py requires --component. component_breakdown is always a single-element array (there's only one component in scope, since --component is a required filter — kept as an array rather than a bare object for shape consistency with every other operation's breakdown pair). criticality_breakdown is the same summary computed per component_criticality tier within that component.",
+  "type": "object",
+  "$defs": {
+    "summary_fields": {
+      "type": "object",
+      "properties": {
+        "component_criticality": {"type": "string", "description": "Present only in criticality_breakdown."},
+        "total_spend": {"type": "number", "description": "Sum of line_spend_usd over the row's scope."},
+        "total_qty": {"type": "integer"},
+        "po_count": {"type": "integer", "description": "Row count of the row's scope."},
+        "active_suppliers": {"type": "integer", "description": "Distinct supplier_name count."},
+        "projects_touched": {"type": "integer", "description": "Distinct project_number count."},
+        "ontime_pct": {"type": "number", "description": "0-100. (1 - mean(is_late_arrived)) * 100."},
+        "md_rate": {"type": "number", "description": "0-100. mean(has_md_event) * 100."},
+        "total_rework_cost": {"type": "number"},
+        "open_late_pos": {"type": "integer", "description": "Count where is_open_late is True."}
+      },
+      "required": [
+        "total_spend", "total_qty", "po_count", "active_suppliers",
+        "projects_touched", "ontime_pct", "md_rate", "total_rework_cost", "open_late_pos"
+      ]
+    }
+  },
+  "properties": {
+    "filters": {
+      "type": "object",
+      "properties": {
+        "component": {"type": "string"},
+        "supplier": {"type": ["string", "null"]},
+        "criticality": {"type": ["string", "null"]}
+      },
+      "required": ["component", "supplier", "criticality"]
+    },
+    "component_breakdown": {
+      "type": "array",
+      "description": "Single-element array: the whole filtered scope's summary (unchanged from this operation's previous flat top-level shape).",
+      "items": {"$ref": "#/$defs/summary_fields"},
+      "minItems": 1,
+      "maxItems": 1
+    },
+    "criticality_breakdown": {
+      "type": "array",
+      "description": "One row per component_criticality tier present in scope.",
+      "items": {"$ref": "#/$defs/summary_fields"}
+    }
+  },
+  "required": ["filters", "component_breakdown", "criticality_breakdown"],
+  "additionalProperties": false
+}

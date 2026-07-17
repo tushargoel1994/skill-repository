@@ -1,0 +1,38 @@
+order_id,supplier_name,component_category,is_late_arrived,days_late,has_md_event,is_supplier_fault,days_lost_to_md,line_spend_usd
+PO-2025-00332,Badlands Components LLC,Hydraulic,True,42,False,False,0.0,72337.89
+PO-2025-00098,Hollowpoint Alloys Inc,Mechanical,True,33,False,False,0.0,20775.65
+PO-2024-00492,Badlands Components LLC,Thermal Management,True,21,True,True,15.0,58283.52
+PO-2024-00021,Dusk Manufacturing Co,Hydraulic,True,13,False,False,0.0,31103.8
+PO-2025-00273,Horizon Mech Solutions,Electrical,True,6,True,False,5.0,40288.27
+PO-2025-00396,Trident Industrial Parts,Structural,True,5,False,False,0.0,18441.4
+PO-2024-00097,Horizon Mech Solutions,Structural,True,5,False,False,0.0,9650.06
+PO-2024-00479,Coastal Precision Parts,Thermal Management,True,5,False,False,0.0,32133.01
+PO-2024-00257,Crestfall Components,Optical,False,4,True,True,13.0,639339.96
+PO-2025-00080,Hollowpoint Alloys Inc,Thermal Management,False,4,False,False,0.0,74334.65
+PO-2025-00368,Greystone Fabrications,Electrical,False,4,False,False,0.0,33259.28
+PO-2025-00007,Ironclad Assemblies,Hydraulic,False,2,False,False,0.0,119583.68
+PO-2024-00310,Keystone Bearing Systems,Structural,False,2,False,False,0.0,7974.96
+PO-2024-00288,Ironclad Assemblies,Mechanical,False,2,False,False,0.0,72895.68
+PO-2025-00011,Greystone Fabrications,Structural,False,2,False,False,0.0,147602.5
+PO-2024-00327,Trident Industrial Parts,Mechanical,False,1,True,True,18.0,76192.32
+PO-2025-00131,Ironclad Assemblies,Mechanical,False,1,False,False,0.0,115336.71
+PO-2026-00277,NorthStar Electro-Mech,Thermal Management,False,1,False,False,0.0,58129.46
+PO-2025-00437,Zenith Alloy Solutions,Electrical,False,1,False,False,0.0,1131382.16
+PO-2025-00014,Granite Valley Mfg,Thermal Management,False,1,False,False,0.0,12615.12
+PO-2025-00376,Bayside Precision LLC,Mechanical,False,1,False,False,0.0,29464.56
+PO-2024-00251,Helix Precision Mfg,Hydraulic,False,0,False,False,0.0,25095.36
+PO-2024-00270,Pacific Alloy Works,Optical,False,0,False,False,0.0,226364.11
+PO-2025-00284,Ironclad Assemblies,Electrical,False,0,False,False,0.0,161134.38
+PO-2025-00275,Zenith Alloy Solutions,Structural,False,0,False,False,0.0,20934.42
+PO-2025-00262,Zenith Alloy Solutions,Electrical,False,0,False,False,0.0,172776.6
+PO-2024-00290,Redwood Stampings Inc,Mechanical,False,0,False,False,0.0,135610.36
+PO-2024-00408,Stratos Machined Parts,Electrical,False,0,False,False,0.0,28650.0
+PO-2025-00261,Meridian Fastener Corp,Mechanical,False,0,False,False,0.0,5979.18
+PO-2025-00138,Crestline Tooling Co,Structural,False,0,False,False,0.0,43486.5
+PO-2025-00144,Harbor Castings LLC,Structural,False,0,False,False,0.0,18633.68
+PO-2025-00200,Dusk Manufacturing Co,Mechanical,False,0,False,False,0.0,1784.4
+PO-2025-00253,Stratos Machined Parts,Mechanical,False,0,False,False,0.0,88416.5
+PO-2025-00319,Ironclad Assemblies,Optical,False,0,False,False,0.0,55224.62
+PO-2025-00274,Ironclad Assemblies,Hydraulic,False,0,False,False,0.0,80794.95
+PO-2025-00472,Coastal Precision Parts,Thermal Management,False,0,True,True,13.0,50759.45
+PO-2026-00108,Helix Precision Mfg,Optical,False,0,False,False,0.0,74298.21
